@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Ledger — GTA 6 Trophy Guide &amp; Tracker</title>
+<meta name="description" content="An offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: official names, descriptions and grades, a checklist that saves in your browser, a roadmap to the platinum, and a cited guide for every trophy.">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">LL</div>
+    <div>
+      <h1>Leonida Ledger</h1>
+      <p class="subtitle">GTA 6 Trophy Guide &amp; Tracker — PlayStation 5 · 55 trophies · works fully offline</p>
+    </div>
+  </div>
+  <div class="progress-wrap" id="progressWrap" aria-live="polite">
+    <div class="progress-big"><span id="earnedCount">0</span><span class="progress-of">/ 55</span></div>
+    <div class="progress-bar" role="progressbar" aria-label="Trophies earned" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+    <p class="progress-note" id="progressNote">Your platinum journey starts here.</p>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <button class="tab active" data-view="tracker" type="button">Tracker</button>
+  <button class="tab" data-view="roadmap" type="button">Roadmap to Platinum</button>
+  <button class="tab" data-view="watch" type="button">Watch Out — Missables</button>
+  <button class="tab" data-view="sources" type="button">Sources &amp; Honesty</button>
+</nav>
+
+<main>
+  <section id="view-tracker" class="view active" aria-label="Trophy tracker">
+    <div class="toolbar" role="search">
+      <label class="field field-search">Search
+        <input id="searchInput" type="search" placeholder="Search name, mission or keyword…" autocomplete="off">
+      </label>
+      <label class="field">Grade
+        <select id="gradeFilter">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label class="field">Kind
+        <select id="kindFilter">
+          <option value="all">All kinds</option>
+          <option value="story">Story</option>
+          <option value="side">Strangers &amp; side</option>
+          <option value="activity">Activities</option>
+          <option value="collectible">Collectibles</option>
+          <option value="combat">Combat &amp; crime</option>
+          <option value="economy">Money &amp; property</option>
+          <option value="misc">One-off moments</option>
+          <option value="completion">100% completion</option>
+          <option value="platinum">Platinum</option>
+        </select>
+      </label>
+      <label class="field">Missable
+        <select id="missableFilter">
+          <option value="all">All trophies</option>
+          <option value="watch">Watch out only</option>
+          <option value="safe">Safe / repeatable only</option>
+        </select>
+      </label>
+      <label class="field">Status
+        <select id="statusFilter">
+          <option value="all">Earned &amp; unearned</option>
+          <option value="earned">Earned only</option>
+          <option value="unearned">Unearned only</option>
+        </select>
+      </label>
+      <label class="toggle">
+        <input id="spoilerToggle" type="checkbox" checked>
+        <span>Hide story spoilers until earned</span>
+      </label>
+    </div>
+
+    <div class="stats" id="statsBar" aria-label="Progress by grade"></div>
+
+    <div class="data-actions data-actions-inline">
+      <button id="exportBtnTop" type="button">Export progress (.json)</button>
+      <label class="import-label">Import progress
+        <input id="importInputTop" type="file" accept=".json,application/json">
+      </label>
+      <span class="import-status" id="importStatusTop" role="status"></span>
+    </div>
+
+    <div class="tracker-grid">
+      <div class="list-col">
+        <p class="list-meta" id="listMeta"></p>
+        <ul class="trophy-list" id="trophyList"></ul>
+      </div>
+      <aside class="detail-col" id="detailPane" aria-label="Trophy guide" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view" aria-label="Roadmap to the platinum">
+    <h2>Roadmap to the Platinum</h2>
+    <p class="lede">Six phases, in order, from the first mission to <strong>Vice Got a Price!</strong> The roadmap is built from the official trophy descriptions: story first, one-off moments when they appear, strangers before the finale, then the grinds and the cleanup.</p>
+    <ol class="roadmap" id="roadmapList"></ol>
+    <div class="roadmap-note">
+      <h3>How long?</h3>
+      <p>Launch-day guides estimate around <strong>200 hours</strong> for the platinum. There are no online trophies and no difficulty trophies — it is long, not hard. The hardest single trophy by skill is <strong>The Shootist</strong> (gold in all 42 Shooting Range challenges); the longest by time is <strong>A Long Road</strong> (100% completion).</p>
+    </div>
+  </section>
+
+  <section id="view-watch" class="view" aria-label="Missable trophies">
+    <h2>Watch Out — the one-off moments</h2>
+    <p class="lede">No confirmed missable list exists on launch day (19 November 2026). The flags below are derived only from the official descriptions: a trophy is flagged <strong>Watch out</strong> when its description names one specific mission, place or moment rather than a repeatable activity. Do those the first time the moment appears, and keep a manual save before it — launch-day guides report there is no mission replay.</p>
+    <ul class="trophy-list watch-list" id="watchList"></ul>
+  </section>
+
+  <section id="view-sources" class="view" aria-label="Sources and honesty">
+    <h2>Sources &amp; honesty</h2>
+    <p class="lede">Every guide in this app is written in the author's own words for this entry. It is grounded in the trophy's official description, and it cites its sources beside the guide. A specific place, step or count is only stated when the official description or a named source supports it — anything else is marked <strong>unconfirmed</strong> rather than invented.</p>
+    <h3>Where the facts come from</h3>
+    <ul class="source-list" id="sourceList"></ul>
+    <h3>What this guide does not claim</h3>
+    <ul class="source-list">
+      <li>The game launched 19 November 2026. This guide was written on launch day without playing the game, so it cannot confirm exact mission steps, map markers or hidden-event triggers.</li>
+      <li>Three trophies name a moment without naming its trigger — <strong>Personal Best</strong>, <strong>Bad Luck, I Guess</strong> and <strong>The Truth Is Out There</strong>. Their guides say so openly instead of inventing a method.</li>
+      <li>Counts PSN tracks (42 Shooting Range challenges, 14 Top Fun locations, 18 meditation spots, 52 areas, 9 gangs, 8 garages, 9 activity types, 500 choices) come from PSNProfiles' trophy list, which agrees with Exophase on every name, description and grade.</li>
+      <li>No Rockstar Games logo, official artwork, box art or screenshot of the game is used anywhere in this app. The look is original.</li>
+    </ul>
+    <h3>Your progress</h3>
+    <p>Your checklist is saved only in this browser (localStorage) and never leaves your device. Export it to a file to back it up or move it to another browser, and import it back the same way.</p>
+    <div class="data-actions">
+      <button id="exportBtn" type="button">Export progress (.json)</button>
+      <label class="import-label">Import progress
+        <input id="importInput" type="file" accept=".json,application/json">
+      </label>
+      <button id="resetBtn" type="button" class="danger">Reset all progress</button>
+    </div>
+    <p class="import-status" id="importStatus" role="status"></p>
+  </section>
+</main>
+
+<footer>
+  <p>Leonida Ledger — an unofficial, fan-made guide. Grand Theft Auto and GTA are trademarks of Take-Two Interactive; this guide is not affiliated with or endorsed by Rockstar Games. Trophy names and descriptions are shown as PlayStation publishes them. Works fully offline: no network requests, no accounts, no tracking.</p>
+</footer>
+</body>
+</html>
